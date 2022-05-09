@@ -177,7 +177,7 @@ provate sia con tanti e pochi messaggi con messaggi lunghi o corti. La pagina no
 const app = new Vue({
     el:'#app',
     data: {
-        contact: [
+        contacts: [
             {
                 name: 'Michele',
                 avatar: '_1',
@@ -337,8 +337,22 @@ const app = new Vue({
                         message: 'OK!!',
                         status: 'received'
                     }
-        ]
-    }
+        ],
+    },
+        ],
+
+        activeIndex: 0,
+    },
+
+    methods: {
+        getImgUrl(index){
+            return 'img/avatar${this.contacts[index].avatar}.JPG'
+        },
+
+        activeMessage(index){
+            this.activeIndex = index;
+        }
+    },
 })
 
 
