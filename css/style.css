@@ -239,15 +239,6 @@ body{
   position: relative;
 }
 
-/* .spunta-verde{
-  position: absolute;
-  top: 0;
-  right: 0;
-}
-
-.spunta-verde img{
-  width: 60px;
-} */
 
 .chevron-sent{
   position: absolute;
@@ -295,15 +286,6 @@ body{
   position: relative;
 }
 
-/* .spunta-bianca{
-  position: absolute;
-  top: 15px;
-  left: 0;
-}
-
-.spunta-bianca img{
-  width: 60px;
-} */
 
 .chevron-received{
   position: absolute;
