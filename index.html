@@ -32,8 +32,7 @@
             </div>
             
             <div>
-              <span>Domenico Agostino
-              </span>
+              <span>Domenico Agostino</span>
             </div>
           </div>
 
@@ -115,7 +114,7 @@
               <img :src="`img/avatar_${activeIndex+1}.JPG`" :alt="contacts.name">
             </div>
             
-            < <div>
+            <div>
               <span>{{contacts[activeIndex].name}}</span><br>
               <span style="font-size: 13px; color: grey;">Ultimo accesso oggi alle 12:00</span>
             </div>
@@ -132,10 +131,14 @@
         </div>
 
 
-        <!-- contenitore con la chat -->
+        <!--  chat principale -->
         <div class="chat-container">
 
           <div v-for="item in contacts[activeIndex].messages" class="riferimento-chevron" :class="item.status === 'sent' ? 'message-mine-container' : 'friend-message-container' ">
+            <div v-if="item.status === 'sent'" class="spunta-verde"></div>
+
+            <div v-if="item.status === 'received'" class="spunta-bianca"></div>
+
             <div :class="item.status === 'sent' ? 'message-mine' : 'friend-message' ">
               {{item.message}}
               <span class="orario-messaggio-mio">{{item.date}}</span>
@@ -164,7 +167,7 @@
           <div class="input-write-message-container">
 
             <div class="input-write-message">
-              <input type="text" placeholder="Scrivi un messaggio">
+              <input v-model.trim="newMessage" @keyup.enter="addNewMessage()" type="text" placeholder="Scrivi un messaggio">
             </div>
   
           </div>

@@ -239,15 +239,15 @@ body{
   position: relative;
 }
 
-.punta-verde{
+/* .spunta-verde{
   position: absolute;
   top: 0;
   right: 0;
 }
 
-.punta-verde img{
+.spunta-verde img{
   width: 60px;
-}
+} */
 
 .chevron-sent{
   position: absolute;
@@ -295,15 +295,15 @@ body{
   position: relative;
 }
 
-.punta-bianca{
+/* .spunta-bianca{
   position: absolute;
   top: 15px;
   left: 0;
 }
 
-.punta-bianca img{
+.spunta-bianca img{
   width: 60px;
-}
+} */
 
 .chevron-received{
   position: absolute;
