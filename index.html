@@ -65,7 +65,7 @@
 
           <div class="input-form">
             <i style="margin: 0 10px; color: #B1B2B2;" class="fa-solid fa-magnifying-glass"></i>
-            <input type="text" placeholder="Cerca o inizia una nuova chat">
+            <input @keyup="searchInList()"  v-model="searchInput" type="text" placeholder="Cerca o inizia una nuova chat">
           </div>
 
         </div>

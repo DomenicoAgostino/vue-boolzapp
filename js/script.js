@@ -200,7 +200,7 @@ const app = new Vue({
         newMessage: "",
 
         newResponse: "",
-    
+        searchInput: "",
     
     },
 
@@ -252,6 +252,16 @@ const app = new Vue({
             return dateTime;
         },
     
+        searchInList(){
+            this.contacts.forEach(item => {
+                if(item.name.toLowerCase().includes(this.searchInput.toLowerCase())){
+                    item.visible = true
+                } else {
+                    item.visible = false
+                }
+            });
+    
+        },
     
     
     },
