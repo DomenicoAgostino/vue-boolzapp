@@ -53,7 +53,7 @@
             
             <div>
               <span>Ricevi notifiche di nuovi messaggi</span><br>
-              <span class="text-notifiche">Attiva notifiche desktop</span>
+              <span @click="notificationAltert()"  class="text-notifiche">Attiva notifiche desktop</span>
 
             </div>
           </div>
@@ -74,14 +74,24 @@
 
         <div class="user-container">
 
-          <div @click="activeMessage(index)" v-for="(item, index) in contacts" class="user-contact" :class="activeIndex === index ? 'active' : '' ">
+          <div
+            @click="activeMessage(index)"
+            v-for="(item, index) in contacts"
+            v-if="item.visible"
+            class="user-contact"
+            :class="activeIndex === index ? 'active' : '' ">
   
             <div class="user-info">
   
               <div class="img-container">
+                <img :src="getImgUrl(index)" alt="">
               </div>
               
               <div>
+                <span>{{item.name}}</span><br>
+                <span style= "font-size: 13px; color: grey;">{{item.messages[item.messages.length - 1].message}}</span>
+
+                <span class="orario-last-message">{{item.messages[item.messages.length - 1].date}}</span>
               </div>
 
             </div>
@@ -102,14 +112,12 @@
           <div class="profile-element">
 
             <div class="img-container">
-              
+              <img :src="`img/avatar_${activeIndex+1}.JPG`" :alt="contacts.name">
             </div>
             
-            <div>
-              <span></span><br>
-              <span style="font-size: 13px; color: grey;">
-                Ultimo accesso oggi alle 03:00 AM
-              </span>
+            < <div>
+              <span>{{contacts[activeIndex].name}}</span><br>
+              <span style="font-size: 13px; color: grey;">Ultimo accesso oggi alle 12:00</span>
             </div>
           </div>
 
@@ -127,13 +135,16 @@
         <!-- contenitore con la chat -->
         <div class="chat-container">
 
-          <div class="riferimento-chevron">
-
+          <div v-for="item in contacts[activeIndex].messages" class="riferimento-chevron" :class="item.status === 'sent' ? 'message-mine-container' : 'friend-message-container' ">
+            <div :class="item.status === 'sent' ? 'message-mine' : 'friend-message' ">
+              {{item.message}}
+              <span class="orario-messaggio-mio">{{item.date}}</span>
+            </div>
             <i class="chevron-sent fa-solid fa-chevron-down"></i>
             <i class="chevron-received fa-solid fa-chevron-down"></i>
 
             <div class="punta-verde"></div>
-            <div class="punta-bianca"><img src="media/Punta bianca.png" alt=""></div>
+            <div class="punta-bianca"><img src="" alt=""></div>
             <div>
               
               <span class="orario-messaggio-mio"></span>
